@@ -1,0 +1,37 @@
+<h1>Progression</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Percentage</th>
+            <td>{{ entity.percentage }}</td>
+        </tr>
+        <tr>
+            <th>Progression_date</th>
+            <td>{{ entity.progressiondate|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('progression') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('progression_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('progression_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
