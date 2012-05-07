@@ -12,13 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 class Manager {
-    
+
     // ...
     /**
      * @ORM\OneToMany(targetEntity="Collaborator", mappedBy="manager")
      */
     private $collaborators;
-
     // ...
     /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="manager")
@@ -148,14 +147,12 @@ class Manager {
         return $this->password;
     }
 
-
     /**
      * Add collaborators
      *
      * @param Pasa\RequirementBundle\Entity\Collaborator $collaborators
      */
-    public function addCollaborator(\Pasa\RequirementBundle\Entity\Collaborator $collaborators)
-    {
+    public function addCollaborator(\Pasa\RequirementBundle\Entity\Collaborator $collaborators) {
         $this->collaborators[] = $collaborators;
     }
 
@@ -164,8 +161,7 @@ class Manager {
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getCollaborators()
-    {
+    public function getCollaborators() {
         return $this->collaborators;
     }
 
@@ -174,8 +170,7 @@ class Manager {
      *
      * @param Pasa\RequirementBundle\Entity\Project $projects
      */
-    public function addProject(\Pasa\RequirementBundle\Entity\Project $projects)
-    {
+    public function addProject(\Pasa\RequirementBundle\Entity\Project $projects) {
         $this->projects[] = $projects;
     }
 
@@ -184,8 +179,12 @@ class Manager {
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getProjects()
-    {
+    public function getProjects() {
         return $this->projects;
     }
+
+    public function __toString() {
+        return $this->first_name.' '.$this->last_name;
+    }
+
 }

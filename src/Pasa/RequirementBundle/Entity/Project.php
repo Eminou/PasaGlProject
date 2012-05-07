@@ -19,7 +19,6 @@ class Project {
      * @ORM\JoinColumn(name="manager_id", referencedColumnName="id")
      */
     private $manager;
-    
     // ...
     /**
      * @ORM\OneToMany(targetEntity="Exigency", mappedBy="project")
@@ -98,14 +97,12 @@ class Project {
         return $this->description;
     }
 
-
     /**
      * Set manager
      *
      * @param Pasa\RequirementBundle\Entity\Manager $manager
      */
-    public function setManager(\Pasa\RequirementBundle\Entity\Manager $manager)
-    {
+    public function setManager(\Pasa\RequirementBundle\Entity\Manager $manager) {
         $this->manager = $manager;
     }
 
@@ -114,8 +111,7 @@ class Project {
      *
      * @return Pasa\RequirementBundle\Entity\Manager 
      */
-    public function getManager()
-    {
+    public function getManager() {
         return $this->manager;
     }
 
@@ -124,8 +120,7 @@ class Project {
      *
      * @param Pasa\RequirementBundle\Entity\Exigency $exigencies
      */
-    public function addExigency(\Pasa\RequirementBundle\Entity\Exigency $exigencies)
-    {
+    public function addExigency(\Pasa\RequirementBundle\Entity\Exigency $exigencies) {
         $this->exigencies[] = $exigencies;
     }
 
@@ -134,8 +129,12 @@ class Project {
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getExigencies()
-    {
+    public function getExigencies() {
         return $this->exigencies;
     }
+
+    public function __toString() {
+        return $this->title;
+    }
+
 }

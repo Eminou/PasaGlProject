@@ -258,4 +258,8 @@ class Exigency {
         return $this->progressions;
     }
 
+    public function __toString() {
+        return $this->functionality;
+    }
+
 }

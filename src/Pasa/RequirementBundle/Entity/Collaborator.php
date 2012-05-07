@@ -201,4 +201,8 @@ class Collaborator {
         return $this->progressions;
     }
 
+    public function __toString() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
 }
