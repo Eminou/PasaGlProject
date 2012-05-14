@@ -7,15 +7,27 @@ class __TwigTemplate_90b2b7e32c83853d6cf2c5754e70e0dd extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("PasaRequirementBundle::layout.html.twig");
 
         $this->blocks = array(
+            'content' => array($this, 'block_content'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "PasaRequirementBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_content($context, array $blocks = array())
+    {
+        // line 4
         echo "<h1>Project list</h1>
 
 <table class=\"records_list\">
@@ -29,37 +41,37 @@ class __TwigTemplate_90b2b7e32c83853d6cf2c5754e70e0dd extends Twig_Template
     </thead>
     <tbody>
     ";
-        // line 13
+        // line 16
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 14
+            // line 17
             echo "        <tr>
             <td><a href=\"";
-            // line 15
+            // line 18
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("project_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
             echo "</a></td>
             <td>";
-            // line 16
+            // line 19
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "title"), "html", null, true);
             echo "</td>
             <td>";
-            // line 17
+            // line 20
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "description"), "html", null, true);
             echo "</td>
             <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 21
+            // line 24
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("project_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">show</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 24
+            // line 27
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("project_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">edit</a>
                     </li>
@@ -71,14 +83,14 @@ class __TwigTemplate_90b2b7e32c83853d6cf2c5754e70e0dd extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 30
+        // line 33
         echo "    </tbody>
 </table>
 
 <ul>
     <li>
         <a href=\"";
-        // line 35
+        // line 38
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("project_new"), "html", null, true);
         echo "\">
             Create a new entry
@@ -100,6 +112,6 @@ class __TwigTemplate_90b2b7e32c83853d6cf2c5754e70e0dd extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  80 => 35,  73 => 30,  61 => 24,  55 => 21,  48 => 17,  44 => 16,  38 => 15,  35 => 14,  31 => 13,  17 => 1,);
+        return array (  92 => 38,  85 => 33,  73 => 27,  67 => 24,  60 => 20,  56 => 19,  50 => 18,  47 => 17,  43 => 16,  29 => 4,  26 => 3,);
     }
 }

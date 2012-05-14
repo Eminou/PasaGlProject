@@ -90,6 +90,12 @@ class PasaRequirementBundleEntityProjectProxy extends \Pasa\RequirementBundle\En
         return parent::getExigencies();
     }
 
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
 
     public function __sleep()
     {

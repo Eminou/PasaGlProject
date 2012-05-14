@@ -36,6 +36,30 @@ class PasaRequirementBundleEntityCollaboratorProxy extends \Pasa\RequirementBund
     }
     
     
+    public function setManager(\Pasa\RequirementBundle\Entity\Manager $manager)
+    {
+        $this->__load();
+        return parent::setManager($manager);
+    }
+
+    public function getManager()
+    {
+        $this->__load();
+        return parent::getManager();
+    }
+
+    public function addProgression(\Pasa\RequirementBundle\Entity\Progression $progressions)
+    {
+        $this->__load();
+        return parent::addProgression($progressions);
+    }
+
+    public function getProgressions()
+    {
+        $this->__load();
+        return parent::getProgressions();
+    }
+
     public function getId()
     {
         $this->__load();
@@ -66,16 +90,28 @@ class PasaRequirementBundleEntityCollaboratorProxy extends \Pasa\RequirementBund
         return parent::getLastName();
     }
 
-    public function setLogin($login)
+    public function setUsername($username)
     {
         $this->__load();
-        return parent::setLogin($login);
+        return parent::setUsername($username);
     }
 
-    public function getLogin()
+    public function getUsername()
     {
         $this->__load();
-        return parent::getLogin();
+        return parent::getUsername();
+    }
+
+    public function setSalt($salt)
+    {
+        $this->__load();
+        return parent::setSalt($salt);
+    }
+
+    public function getSalt()
+    {
+        $this->__load();
+        return parent::getSalt();
     }
 
     public function setPassword($password)
@@ -90,46 +126,82 @@ class PasaRequirementBundleEntityCollaboratorProxy extends \Pasa\RequirementBund
         return parent::getPassword();
     }
 
-    public function setManager(\Pasa\RequirementBundle\Entity\Manager $manager)
+    public function setEmail($email)
     {
         $this->__load();
-        return parent::setManager($manager);
+        return parent::setEmail($email);
     }
 
-    public function getManager()
+    public function getEmail()
     {
         $this->__load();
-        return parent::getManager();
+        return parent::getEmail();
     }
 
-    public function setProgression(\Pasa\RequirementBundle\Entity\Progression $progression)
+    public function setIsActive($isActive)
     {
         $this->__load();
-        return parent::setProgression($progression);
+        return parent::setIsActive($isActive);
     }
 
-    public function getProgression()
+    public function getIsActive()
     {
         $this->__load();
-        return parent::getProgression();
+        return parent::getIsActive();
     }
 
-    public function addProgression(\Pasa\RequirementBundle\Entity\Progression $progressions)
+    public function getRoles()
     {
         $this->__load();
-        return parent::addProgression($progressions);
+        return parent::getRoles();
     }
 
-    public function getProgressions()
+    public function equals(\Symfony\Component\Security\Core\User\UserInterface $user)
     {
         $this->__load();
-        return parent::getProgressions();
+        return parent::equals($user);
+    }
+
+    public function eraseCredentials()
+    {
+        $this->__load();
+        return parent::eraseCredentials();
+    }
+
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
+    public function isAccountNonExpired()
+    {
+        $this->__load();
+        return parent::isAccountNonExpired();
+    }
+
+    public function isAccountNonLocked()
+    {
+        $this->__load();
+        return parent::isAccountNonLocked();
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        $this->__load();
+        return parent::isCredentialsNonExpired();
+    }
+
+    public function isEnabled()
+    {
+        $this->__load();
+        return parent::isEnabled();
     }
 
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'progressions', 'manager', 'id', 'first_name', 'last_name', 'login', 'password');
+        return array('__isInitialized__', 'id', 'first_name', 'last_name', 'username', 'salt', 'password', 'email', 'is_active', 'progressions', 'manager');
     }
 
     public function __clone()

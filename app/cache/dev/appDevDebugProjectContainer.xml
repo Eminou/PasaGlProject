@@ -18,7 +18,6 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="JMSSecurityExtraBundle">JMS\SecurityExtraBundle\JMSSecurityExtraBundle</parameter>
       <parameter key="PasaRequirementBundle">Pasa\RequirementBundle\PasaRequirementBundle</parameter>
-      <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -586,14 +585,6 @@
           <argument>onCoreController</argument>
         </argument>
         <argument>-255</argument>
-      </call>
-      <call method="addListenerService">
-        <argument>kernel.controller</argument>
-        <argument type="collection">
-          <argument>acme.demo.listener</argument>
-          <argument>onKernelController</argument>
-        </argument>
-        <argument>0</argument>
       </call>
       <call method="addListenerService">
         <argument>kernel.response</argument>
@@ -1240,12 +1231,12 @@
             </argument>
             <argument key="security.firewall.map.context.login" type="service">
               <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                <argument>^/demo/secured/login$</argument>
+                <argument>^/login$</argument>
               </service>
             </argument>
             <argument key="security.firewall.map.context.secured_area" type="service">
               <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                <argument>^/demo/secured/</argument>
+                <argument>^/</argument>
               </service>
             </argument>
           </argument>
@@ -1265,6 +1256,11 @@
         <argument type="service" id="security.user.provider.concrete.in_memory"/>
         <argument type="service" id="security.user.provider.concrete.user_db"/>
       </argument>
+    </service>
+    <service id="security.user.provider.concrete.user_db" class="Symfony\Bridge\Doctrine\Security\User\EntityUserProvider" public="false">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>Pasa\RequirementBundle\Entity\User</argument>
+      <argument>username</argument>
     </service>
     <service id="security.user.provider.concrete.in_memory" class="Symfony\Component\Security\Core\User\InMemoryUserProvider" public="false">
       <call method="createUser">
@@ -1289,11 +1285,6 @@
           </service>
         </argument>
       </call>
-    </service>
-    <service id="security.user.provider.concrete.user_db" class="Symfony\Bridge\Doctrine\Security\User\EntityUserProvider" public="false">
-      <argument type="service" id="doctrine.orm.default_entity_manager"/>
-      <argument>Pasa\RequirementBundle\Entity\User</argument>
-      <argument>username</argument>
     </service>
     <service id="security.firewall.map.context.dev" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext">
       <argument type="collection"/>
@@ -1322,8 +1313,8 @@
             <argument type="service" id="security.context"/>
             <argument type="collection">
               <argument type="service" id="security.user.provider.concrete.chain_provider"/>
-              <argument type="service" id="security.user.provider.concrete.in_memory"/>
               <argument type="service" id="security.user.provider.concrete.user_db"/>
+              <argument type="service" id="security.user.provider.concrete.in_memory"/>
             </argument>
             <argument>secured_area</argument>
             <argument type="service" id="monolog.logger.security"/>
@@ -1338,8 +1329,8 @@
                 <argument type="service" id="router"/>
               </service>
             </argument>
-            <argument>/demo/secured/logout</argument>
-            <argument>/demo/</argument>
+            <argument>/logout</argument>
+            <argument>/login</argument>
             <argument>null</argument>
             <call method="addHandler">
               <argument type="service">
@@ -1365,11 +1356,11 @@
             </argument>
             <argument>secured_area</argument>
             <argument type="collection">
-              <argument key="check_path">/demo/secured/login_check</argument>
-              <argument key="login_path">/demo/secured/login</argument>
+              <argument key="check_path">/login_check</argument>
+              <argument key="login_path">/login</argument>
+              <argument key="always_use_default_target_path">true</argument>
+              <argument key="default_target_path">/project</argument>
               <argument key="use_forward">false</argument>
-              <argument key="always_use_default_target_path">false</argument>
-              <argument key="default_target_path">/</argument>
               <argument key="target_path_parameter">_target_path</argument>
               <argument key="use_referer">false</argument>
               <argument key="failure_path">null</argument>
@@ -1416,7 +1407,7 @@
                   <argument type="service" id="router"/>
                 </service>
               </argument>
-              <argument>/demo/secured/login</argument>
+              <argument>/login</argument>
               <argument>false</argument>
             </service>
           </argument>
@@ -1510,9 +1501,6 @@
             <argument type="collection"/>
           </service>
         </argument>
-      </call>
-      <call method="addExtension">
-        <argument type="service" id="twig.extension.acme.demo"/>
       </call>
     </service>
     <service id="twig.loader" class="Symfony\Bundle\TwigBundle\Loader\FilesystemLoader">
@@ -1985,33 +1973,6 @@
               <argument type="service">
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
-                  <argument>AcmeDemoBundle</argument>
-                  <argument>/home/vamps/sfprojects/Exigency/app/Resources/AcmeDemoBundle/views</argument>
-                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
-                </service>
-              </argument>
-              <argument type="service">
-                <service class="%assetic.directory_resource.class%" public="false">
-                  <argument type="service" id="templating.loader"/>
-                  <argument>AcmeDemoBundle</argument>
-                  <argument>/home/vamps/sfprojects/Exigency/src/Acme/DemoBundle/Resources/views</argument>
-                  <argument>/^[^.]+\.[^.]+\.twig$/</argument>
-                </service>
-              </argument>
-            </argument>
-          </service>
-        </argument>
-        <argument>twig</argument>
-      </call>
-      <call method="addResource">
-        <argument type="service">
-          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
-            <tag name="assetic.templating.twig"/>
-            <tag name="assetic.formula_resource" loader="twig"/>
-            <argument type="collection">
-              <argument type="service">
-                <service class="%assetic.directory_resource.class%" public="false">
-                  <argument type="service" id="templating.loader"/>
                   <argument>WebProfilerBundle</argument>
                   <argument>/home/vamps/sfprojects/Exigency/app/Resources/WebProfilerBundle/views</argument>
                   <argument>/^[^.]+\.[^.]+\.twig$/</argument>
@@ -2182,14 +2143,6 @@
       <argument type="service" id="service_container"/>
       <argument type="service" id="annotation_reader"/>
     </service>
-    <service id="twig.extension.acme.demo" class="Acme\DemoBundle\Twig\Extension\DemoExtension" public="false">
-      <tag name="twig.extension"/>
-      <argument type="service" id="twig.loader"/>
-    </service>
-    <service id="acme.demo.listener" class="Acme\DemoBundle\ControllerListener">
-      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
-      <argument type="service" id="twig.extension.acme.demo"/>
-    </service>
     <service id="web_profiler.debug_toolbar" class="Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener">
       <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="-128"/>
       <argument type="service" id="templating"/>
@@ -2323,6 +2276,12 @@
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
       <argument type="collection">
+        <argument key="Symfony\Component\Security\Core\User\User" type="collection">
+          <argument key="class">%security.encoder.plain.class%</argument>
+          <argument key="arguments" type="collection">
+            <argument>false</argument>
+          </argument>
+        </argument>
         <argument key="Pasa\RequirementBundle\Entity\User" type="collection">
           <argument key="class">%security.encoder.digest.class%</argument>
           <argument key="arguments" type="collection">

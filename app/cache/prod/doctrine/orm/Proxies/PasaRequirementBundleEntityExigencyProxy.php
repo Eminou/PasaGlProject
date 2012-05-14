@@ -150,6 +150,12 @@ class PasaRequirementBundleEntityExigencyProxy extends \Pasa\RequirementBundle\E
         return parent::getProgressions();
     }
 
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
 
     public function __sleep()
     {
