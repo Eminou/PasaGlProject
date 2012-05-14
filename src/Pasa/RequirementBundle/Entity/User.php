@@ -7,9 +7,15 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
- * Pasa\RequirementBundle\Entity\User
- *
+ * @ORM\Entity
  * @ORM\Table()
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="class_name", type="string")
+ * @ORM\DiscriminatorMap({
+ *  "user" = "User",
+ *  "manager" = "Manager",
+ *  "collaborator" = "Collaborator"
+ * })
  */
 class User implements UserInterface,AdvancedUserInterface
 {

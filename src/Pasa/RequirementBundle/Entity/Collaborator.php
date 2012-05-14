@@ -17,13 +17,13 @@ class Collaborator extends User {
     /**
      * @ORM\OneToMany(targetEntity="Progression", mappedBy="collaborator")
      */
-    private $progressions;
+    protected $progressions;
 
     /**
      * @ORM\ManyToOne(targetEntity="Manager", inversedBy="collaborators")
      * @ORM\JoinColumn(name="manager_id", referencedColumnName="id")
      */
-    private $manager;
+    protected $manager;
 
     public function __construct() {
         parent::__construct();

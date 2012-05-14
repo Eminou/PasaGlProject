@@ -17,13 +17,13 @@ class Manager extends User {
     /**
      * @ORM\OneToMany(targetEntity="Collaborator", mappedBy="manager")
      */
-    private $collaborators;
+    protected $collaborators;
 
     // ...
     /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="manager")
      */
-    private $projects;
+    protected $projects;
 
     public function __construct() {
         parent::__construct();

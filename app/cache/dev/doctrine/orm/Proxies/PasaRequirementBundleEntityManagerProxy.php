@@ -201,7 +201,7 @@ class PasaRequirementBundleEntityManagerProxy extends \Pasa\RequirementBundle\En
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'collaborators', 'projects', 'id', 'first_name', 'last_name', 'username', 'salt', 'password', 'email', 'is_active');
+        return array('__isInitialized__', 'id', 'first_name', 'last_name', 'username', 'salt', 'password', 'email', 'is_active', 'collaborators', 'projects');
     }
 
     public function __clone()
