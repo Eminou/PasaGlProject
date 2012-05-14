@@ -1,0 +1,1 @@
+<?php return unserialize('a:1:{i:0;O:26:"Doctrine\\ORM\\Mapping\\Table":5:{s:4:"name";N;s:6:"schema";N;s:7:"indexes";N;s:17:"uniqueConstraints";N;s:5:"value";N;}}');

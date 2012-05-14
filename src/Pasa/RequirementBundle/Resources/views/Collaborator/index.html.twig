@@ -6,8 +6,11 @@
             <th>Id</th>
             <th>First_name</th>
             <th>Last_name</th>
-            <th>Login</th>
+            <th>Username</th>
+            <th>Salt</th>
             <th>Password</th>
+            <th>Email</th>
+            <th>Is_active</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -17,8 +20,11 @@
             <td><a href="{{ path('collaborator_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.firstname }}</td>
             <td>{{ entity.lastname }}</td>
-            <td>{{ entity.login }}</td>
+            <td>{{ entity.username }}</td>
+            <td>{{ entity.salt }}</td>
             <td>{{ entity.password }}</td>
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.isactive }}</td>
             <td>
                 <ul>
                     <li>

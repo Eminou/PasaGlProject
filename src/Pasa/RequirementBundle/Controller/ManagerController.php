@@ -86,6 +86,10 @@ class ManagerController extends Controller
         $form->bindRequest($request);
 
         if ($form->isValid()) {
+            $factory = $this->get('security.encoder_factory');
+            $encoder = $factory->getEncoder($entity);
+            $password = $encoder->encodePassword($entity->getPassword(), $entity->getSalt());
+            $entity->setPassword($password);
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($entity);
             $em->flush();

@@ -12,8 +12,10 @@ class ManagerType extends AbstractType
         $builder
             ->add('first_name')
             ->add('last_name')
-            ->add('login')
+            ->add('username')
             ->add('password')
+            ->add('email')
+            ->add('is_active')
         ;
     }
 
