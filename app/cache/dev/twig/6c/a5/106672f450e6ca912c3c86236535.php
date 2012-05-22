@@ -16,7 +16,7 @@ class __TwigTemplate_6ca5106672f450e6ca912c3c86236535 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "    <h1>Authentification:</h1>
+        echo "    <h1>Authentication:</h1>
 
     <p>
         Enter youre username and password to be able to use the application:

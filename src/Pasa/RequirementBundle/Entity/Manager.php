@@ -72,4 +72,9 @@ class Manager extends User {
     {
         return $this->projects;
     }
+
+    public function getRoles() 
+    {
+        return array('ROLE_MANAGER');
+    }
 }

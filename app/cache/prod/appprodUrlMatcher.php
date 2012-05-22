@@ -25,9 +25,27 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         $allow = array();
         $pathinfo = urldecode($pathinfo);
 
+        // _login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\SecuredController::loginAction',  '_route' => '_login',);
+        }
+
+        // _security_check
+        if ($pathinfo === '/login_check') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\SecuredController::securityCheckAction',  '_route' => '_security_check',);
+        }
+
+        // _logout
+        if ($pathinfo === '/logout') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\SecuredController::logoutAction',  '_route' => '_logout',);
+        }
+
         // pasa_requirement_default_index
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]+?)$#s', $pathinfo, $matches)) {
-            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'pasa_requirement_default_index'));
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'pasa_requirement_default_index');
+            }
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\DefaultController::indexAction',  '_route' => 'pasa_requirement_default_index',);
         }
 
         // manager

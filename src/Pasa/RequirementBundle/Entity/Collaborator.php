@@ -67,4 +67,8 @@ class Collaborator extends User {
         return $this->progressions;
     }
 
+    public function getRoles() {
+        return array('ROLE_COLLABORATOR');
+    }
+
 }

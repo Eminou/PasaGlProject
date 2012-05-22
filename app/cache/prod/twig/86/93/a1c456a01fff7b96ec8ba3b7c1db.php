@@ -7,15 +7,27 @@ class __TwigTemplate_8693a1c456a01fff7b96ec8ba3b7c1db extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("PasaRequirementBundle::layout.html.twig");
 
         $this->blocks = array(
+            'content' => array($this, 'block_content'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "PasaRequirementBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_content($context, array $blocks = array())
+    {
+        // line 4
         echo "<h1>Exigency list</h1>
 
 <table class=\"records_list\">
@@ -34,15 +46,15 @@ class __TwigTemplate_8693a1c456a01fff7b96ec8ba3b7c1db extends Twig_Template
     </thead>
     <tbody>
     ";
-        // line 18
+        // line 21
         if (isset($context["entities"])) { $_entities_ = $context["entities"]; } else { $_entities_ = null; }
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($_entities_);
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 19
+            // line 22
             echo "        <tr>
             <td><a href=\"";
-            // line 20
+            // line 23
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("exigency_show", array("id" => $this->getAttribute($_entity_, "id"))), "html", null, true);
             echo "\">";
@@ -50,32 +62,32 @@ class __TwigTemplate_8693a1c456a01fff7b96ec8ba3b7c1db extends Twig_Template
             echo twig_escape_filter($this->env, $this->getAttribute($_entity_, "id"), "html", null, true);
             echo "</a></td>
             <td>";
-            // line 21
+            // line 24
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_entity_, "functionality"), "html", null, true);
             echo "</td>
             <td>";
-            // line 22
+            // line 25
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_entity_, "number"), "html", null, true);
             echo "</td>
             <td>";
-            // line 23
+            // line 26
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_entity_, "description"), "html", null, true);
             echo "</td>
             <td>";
-            // line 24
+            // line 27
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_entity_, "priority"), "html", null, true);
             echo "</td>
             <td>";
-            // line 25
+            // line 28
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->getAttribute($_entity_, "charge"), "html", null, true);
             echo "</td>
             <td>";
-            // line 26
+            // line 29
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             if ($this->getAttribute($_entity_, "startdate")) {
                 if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
@@ -83,7 +95,7 @@ class __TwigTemplate_8693a1c456a01fff7b96ec8ba3b7c1db extends Twig_Template
             }
             echo "</td>
             <td>";
-            // line 27
+            // line 30
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             if ($this->getAttribute($_entity_, "enddate")) {
                 if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
@@ -94,14 +106,14 @@ class __TwigTemplate_8693a1c456a01fff7b96ec8ba3b7c1db extends Twig_Template
                 <ul>
                     <li>
                         <a href=\"";
-            // line 31
+            // line 34
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("exigency_show", array("id" => $this->getAttribute($_entity_, "id"))), "html", null, true);
             echo "\">show</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 34
+            // line 37
             if (isset($context["entity"])) { $_entity_ = $context["entity"]; } else { $_entity_ = null; }
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("exigency_edit", array("id" => $this->getAttribute($_entity_, "id"))), "html", null, true);
             echo "\">edit</a>
@@ -114,14 +126,14 @@ class __TwigTemplate_8693a1c456a01fff7b96ec8ba3b7c1db extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 40
+        // line 43
         echo "    </tbody>
 </table>
 
 <ul>
     <li>
         <a href=\"";
-        // line 45
+        // line 48
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("exigency_new"), "html", null, true);
         echo "\">
             Create a new entry
@@ -143,6 +155,6 @@ class __TwigTemplate_8693a1c456a01fff7b96ec8ba3b7c1db extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  116 => 40,  103 => 34,  72 => 25,  114 => 53,  100 => 47,  81 => 35,  70 => 24,  49 => 19,  40 => 12,  21 => 3,  69 => 32,  41 => 19,  209 => 78,  206 => 77,  201 => 76,  194 => 71,  191 => 70,  186 => 67,  180 => 63,  176 => 61,  166 => 58,  158 => 56,  153 => 55,  143 => 49,  134 => 44,  123 => 45,  118 => 39,  90 => 35,  87 => 35,  66 => 18,  60 => 27,  146 => 50,  136 => 41,  122 => 37,  107 => 34,  101 => 33,  95 => 29,  82 => 25,  73 => 31,  67 => 24,  52 => 21,  22 => 4,  55 => 9,  45 => 6,  36 => 18,  109 => 52,  104 => 34,  96 => 31,  84 => 14,  80 => 30,  26 => 4,  92 => 42,  79 => 40,  57 => 22,  46 => 7,  29 => 4,  19 => 1,  27 => 3,  112 => 21,  102 => 19,  89 => 16,  63 => 21,  56 => 12,  50 => 6,  47 => 16,  44 => 20,  37 => 8,  34 => 6,  30 => 3,  43 => 7,  33 => 11,  25 => 7,  20 => 2,  249 => 96,  239 => 90,  235 => 88,  228 => 84,  224 => 82,  219 => 80,  217 => 79,  214 => 79,  211 => 77,  208 => 76,  202 => 72,  199 => 71,  193 => 67,  182 => 63,  178 => 61,  175 => 60,  172 => 59,  165 => 55,  161 => 57,  156 => 51,  154 => 50,  150 => 48,  147 => 47,  132 => 39,  127 => 43,  117 => 36,  113 => 34,  86 => 6,  83 => 30,  78 => 15,  68 => 9,  64 => 16,  61 => 15,  48 => 10,  39 => 15,  32 => 5,  24 => 4,  23 => 3,  17 => 1,  144 => 46,  138 => 46,  130 => 46,  124 => 24,  121 => 41,  115 => 40,  111 => 36,  108 => 31,  99 => 33,  94 => 29,  91 => 17,  88 => 16,  85 => 27,  77 => 26,  74 => 33,  71 => 19,  65 => 27,  62 => 23,  58 => 8,  54 => 18,  51 => 10,  42 => 9,  38 => 8,  35 => 7,  31 => 13,  28 => 4,);
+        return array (  135 => 48,  128 => 43,  97 => 30,  126 => 56,  41 => 7,  106 => 27,  103 => 26,  93 => 38,  75 => 24,  69 => 25,  59 => 19,  40 => 7,  21 => 1,  81 => 35,  72 => 30,  53 => 22,  209 => 78,  206 => 77,  201 => 76,  194 => 71,  191 => 70,  186 => 67,  180 => 63,  176 => 61,  166 => 58,  158 => 56,  153 => 55,  143 => 49,  134 => 44,  123 => 40,  118 => 39,  90 => 17,  87 => 27,  66 => 21,  60 => 15,  146 => 50,  136 => 41,  122 => 37,  107 => 34,  101 => 33,  95 => 33,  82 => 27,  73 => 20,  67 => 17,  52 => 15,  22 => 4,  55 => 24,  45 => 14,  36 => 5,  109 => 20,  104 => 45,  96 => 32,  84 => 28,  80 => 24,  26 => 3,  92 => 33,  79 => 27,  57 => 14,  46 => 7,  29 => 4,  19 => 1,  27 => 5,  112 => 50,  102 => 38,  89 => 29,  63 => 14,  56 => 23,  50 => 14,  47 => 5,  44 => 14,  37 => 10,  34 => 6,  30 => 3,  43 => 16,  33 => 6,  25 => 7,  20 => 2,  249 => 96,  239 => 90,  235 => 88,  228 => 84,  224 => 82,  219 => 80,  217 => 79,  214 => 79,  211 => 77,  208 => 76,  202 => 72,  199 => 71,  193 => 67,  182 => 63,  178 => 61,  175 => 60,  172 => 59,  165 => 55,  161 => 57,  156 => 51,  154 => 50,  150 => 48,  147 => 47,  132 => 39,  127 => 43,  117 => 36,  113 => 34,  86 => 36,  83 => 20,  78 => 16,  68 => 9,  64 => 24,  61 => 22,  48 => 21,  39 => 8,  32 => 5,  24 => 4,  23 => 3,  17 => 1,  144 => 46,  138 => 46,  130 => 46,  124 => 24,  121 => 55,  115 => 37,  111 => 36,  108 => 34,  99 => 38,  94 => 29,  91 => 17,  88 => 16,  85 => 34,  77 => 30,  74 => 26,  71 => 19,  65 => 16,  62 => 15,  58 => 8,  54 => 13,  51 => 18,  42 => 9,  38 => 11,  35 => 10,  31 => 6,  28 => 8,);
     }
 }

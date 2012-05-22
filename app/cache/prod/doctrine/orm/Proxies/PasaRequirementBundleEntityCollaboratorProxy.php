@@ -60,6 +60,12 @@ class PasaRequirementBundleEntityCollaboratorProxy extends \Pasa\RequirementBund
         return parent::getProgressions();
     }
 
+    public function getRoles()
+    {
+        $this->__load();
+        return parent::getRoles();
+    }
+
     public function getId()
     {
         $this->__load();
@@ -148,12 +154,6 @@ class PasaRequirementBundleEntityCollaboratorProxy extends \Pasa\RequirementBund
     {
         $this->__load();
         return parent::getIsActive();
-    }
-
-    public function getRoles()
-    {
-        $this->__load();
-        return parent::getRoles();
     }
 
     public function equals(\Symfony\Component\Security\Core\User\UserInterface $user)

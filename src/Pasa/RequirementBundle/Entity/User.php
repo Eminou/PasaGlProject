@@ -75,6 +75,7 @@ class User implements UserInterface,AdvancedUserInterface
      *
      * @ORM\Column(name="is_active", type="boolean")
      */
+
     protected $is_active;
     
     public function __construct()

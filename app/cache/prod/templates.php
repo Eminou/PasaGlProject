@@ -69,6 +69,7 @@
   'PasaRequirementBundle:Progression:index.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Progression/index.html.twig',
   'PasaRequirementBundle:Progression:new.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Progression/new.html.twig',
   'PasaRequirementBundle:Progression:edit.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Progression/edit.html.twig',
+  'PasaRequirementBundle:Secured:login.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Secured/login.html.twig',
   'PasaRequirementBundle:Exigency:show.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Exigency/show.html.twig',
   'PasaRequirementBundle:Exigency:index.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Exigency/index.html.twig',
   'PasaRequirementBundle:Exigency:new.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Exigency/new.html.twig',
@@ -82,5 +83,7 @@
   'PasaRequirementBundle:Manager:new.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Manager/new.html.twig',
   'PasaRequirementBundle:Manager:edit.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Manager/edit.html.twig',
   'PasaRequirementBundle:Default:index.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Default/index.html.twig',
+  'PasaRequirementBundle:Default:redirect.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/Default/redirect.html.twig',
+  'PasaRequirementBundle::layout.html.twig' => '/home/vamps/sfprojects/Exigency/src/Pasa/RequirementBundle/Resources/views/layout.html.twig',
   '::base.html.twig' => '/home/vamps/sfprojects/Exigency/app/Resources/views/base.html.twig',
 );

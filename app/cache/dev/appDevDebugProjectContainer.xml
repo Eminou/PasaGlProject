@@ -1359,7 +1359,7 @@
               <argument key="check_path">/login_check</argument>
               <argument key="login_path">/login</argument>
               <argument key="always_use_default_target_path">true</argument>
-              <argument key="default_target_path">/project</argument>
+              <argument key="default_target_path">/</argument>
               <argument key="use_forward">false</argument>
               <argument key="target_path_parameter">_target_path</argument>
               <argument key="use_referer">false</argument>

@@ -13,6 +13,9 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerator
 {
     static private $declaredRouteNames = array(
+       '_login' => true,
+       '_security_check' => true,
+       '_logout' => true,
        'pasa_requirement_default_index' => true,
        'manager' => true,
        'manager_show' => true,
@@ -72,9 +75,24 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
         return $this->doGenerate($variables, $defaults, $requirements, $tokens, $parameters, $name, $absolute);
     }
 
+    private function get_loginRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\SecuredController::loginAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/login',  ),));
+    }
+
+    private function get_security_checkRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\SecuredController::securityCheckAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/login_check',  ),));
+    }
+
+    private function get_logoutRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\SecuredController::logoutAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/logout',  ),));
+    }
+
     private function getpasa_requirement_default_indexRouteInfo()
     {
-        return array(array (  0 => 'name',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\DefaultController::indexAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/hello',  ),));
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\DefaultController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),));
     }
 
     private function getmanagerRouteInfo()
