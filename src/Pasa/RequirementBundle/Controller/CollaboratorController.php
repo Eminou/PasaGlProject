@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pasa\RequirementBundle\Entity\Collaborator;
 use Pasa\RequirementBundle\Form\CollaboratorType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Collaborator controller.
@@ -18,7 +19,7 @@ class CollaboratorController extends Controller
 {
     /**
      * Lists all Collaborator entities.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/", name="collaborator")
      * @Template()
      */
@@ -33,7 +34,7 @@ class CollaboratorController extends Controller
 
     /**
      * Finds and displays a Collaborator entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/show", name="collaborator_show")
      * @Template()
      */
@@ -56,7 +57,7 @@ class CollaboratorController extends Controller
 
     /**
      * Displays a form to create a new Collaborator entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/new", name="collaborator_new")
      * @Template()
      */
@@ -73,7 +74,7 @@ class CollaboratorController extends Controller
 
     /**
      * Creates a new Collaborator entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/create", name="collaborator_create")
      * @Method("post")
      * @Template("PasaRequirementBundle:Collaborator:new.html.twig")
@@ -106,7 +107,7 @@ class CollaboratorController extends Controller
 
     /**
      * Displays a form to edit an existing Collaborator entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/edit", name="collaborator_edit")
      * @Template()
      */
@@ -132,7 +133,7 @@ class CollaboratorController extends Controller
 
     /**
      * Edits an existing Collaborator entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/update", name="collaborator_update")
      * @Method("post")
      * @Template("PasaRequirementBundle:Collaborator:edit.html.twig")
@@ -170,7 +171,7 @@ class CollaboratorController extends Controller
 
     /**
      * Deletes a Collaborator entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/delete", name="collaborator_delete")
      * @Method("post")
      */

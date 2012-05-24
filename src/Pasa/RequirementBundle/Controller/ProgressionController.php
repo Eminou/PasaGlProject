@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pasa\RequirementBundle\Entity\Progression;
 use Pasa\RequirementBundle\Form\ProgressionType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Progression controller.
@@ -18,7 +19,7 @@ class ProgressionController extends Controller
 {
     /**
      * Lists all Progression entities.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/", name="progression")
      * @Template()
      */
@@ -33,7 +34,7 @@ class ProgressionController extends Controller
 
     /**
      * Finds and displays a Progression entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/show", name="progression_show")
      * @Template()
      */
@@ -56,7 +57,7 @@ class ProgressionController extends Controller
 
     /**
      * Displays a form to create a new Progression entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/new", name="progression_new")
      * @Template()
      */
@@ -73,7 +74,7 @@ class ProgressionController extends Controller
 
     /**
      * Creates a new Progression entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/create", name="progression_create")
      * @Method("post")
      * @Template("PasaRequirementBundle:Progression:new.html.twig")
@@ -102,7 +103,7 @@ class ProgressionController extends Controller
 
     /**
      * Displays a form to edit an existing Progression entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/edit", name="progression_edit")
      * @Template()
      */
@@ -128,7 +129,7 @@ class ProgressionController extends Controller
 
     /**
      * Edits an existing Progression entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/update", name="progression_update")
      * @Method("post")
      * @Template("PasaRequirementBundle:Progression:edit.html.twig")
@@ -166,7 +167,7 @@ class ProgressionController extends Controller
 
     /**
      * Deletes a Progression entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/delete", name="progression_delete")
      * @Method("post")
      */

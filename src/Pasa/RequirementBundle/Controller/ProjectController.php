@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pasa\RequirementBundle\Entity\Project;
 use Pasa\RequirementBundle\Form\ProjectType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Project controller.
@@ -18,7 +19,7 @@ class ProjectController extends Controller
 {
     /**
      * Lists all Project entities.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/", name="project")
      * @Template()
      */
@@ -33,7 +34,7 @@ class ProjectController extends Controller
 
     /**
      * Finds and displays a Project entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/show", name="project_show")
      * @Template()
      */
@@ -56,7 +57,7 @@ class ProjectController extends Controller
 
     /**
      * Displays a form to create a new Project entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/new", name="project_new")
      * @Template()
      */
@@ -73,7 +74,7 @@ class ProjectController extends Controller
 
     /**
      * Creates a new Project entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/create", name="project_create")
      * @Method("post")
      * @Template("PasaRequirementBundle:Project:new.html.twig")
@@ -102,7 +103,7 @@ class ProjectController extends Controller
 
     /**
      * Displays a form to edit an existing Project entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/edit", name="project_edit")
      * @Template()
      */
@@ -128,7 +129,7 @@ class ProjectController extends Controller
 
     /**
      * Edits an existing Project entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/update", name="project_update")
      * @Method("post")
      * @Template("PasaRequirementBundle:Project:edit.html.twig")
@@ -166,7 +167,7 @@ class ProjectController extends Controller
 
     /**
      * Deletes a Project entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/delete", name="project_delete")
      * @Method("post")
      */

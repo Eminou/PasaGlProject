@@ -1,2 +1,2 @@
-app/cache/*
-app/logs/*
+# Netbeans folder
+nbproject

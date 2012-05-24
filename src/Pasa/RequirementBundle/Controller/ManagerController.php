@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pasa\RequirementBundle\Entity\Manager;
 use Pasa\RequirementBundle\Form\ManagerType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Manager controller.
@@ -18,7 +19,7 @@ class ManagerController extends Controller
 {
     /**
      * Lists all Manager entities.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/", name="manager")
      * @Template()
      */
@@ -33,7 +34,7 @@ class ManagerController extends Controller
 
     /**
      * Finds and displays a Manager entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/show", name="manager_show")
      * @Template()
      */
@@ -56,7 +57,7 @@ class ManagerController extends Controller
 
     /**
      * Displays a form to create a new Manager entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/new", name="manager_new")
      * @Template()
      */
@@ -73,7 +74,7 @@ class ManagerController extends Controller
 
     /**
      * Creates a new Manager entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/create", name="manager_create")
      * @Method("post")
      * @Template("PasaRequirementBundle:Manager:new.html.twig")
@@ -106,7 +107,7 @@ class ManagerController extends Controller
 
     /**
      * Displays a form to edit an existing Manager entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/edit", name="manager_edit")
      * @Template()
      */
@@ -132,7 +133,7 @@ class ManagerController extends Controller
 
     /**
      * Edits an existing Manager entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/update", name="manager_update")
      * @Method("post")
      * @Template("PasaRequirementBundle:Manager:edit.html.twig")
@@ -170,7 +171,7 @@ class ManagerController extends Controller
 
     /**
      * Deletes a Manager entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/delete", name="manager_delete")
      * @Method("post")
      */

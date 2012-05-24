@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Pasa\RequirementBundle\Entity\Exigency;
 use Pasa\RequirementBundle\Form\ExigencyType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Exigency controller.
@@ -18,7 +19,7 @@ class ExigencyController extends Controller
 {
     /**
      * Lists all Exigency entities.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/", name="exigency")
      * @Template()
      */
@@ -33,7 +34,7 @@ class ExigencyController extends Controller
 
     /**
      * Finds and displays a Exigency entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/show", name="exigency_show")
      * @Template()
      */
@@ -56,7 +57,7 @@ class ExigencyController extends Controller
 
     /**
      * Displays a form to create a new Exigency entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/new", name="exigency_new")
      * @Template()
      */
@@ -73,7 +74,7 @@ class ExigencyController extends Controller
 
     /**
      * Creates a new Exigency entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/create", name="exigency_create")
      * @Method("post")
      * @Template("PasaRequirementBundle:Exigency:new.html.twig")
@@ -102,7 +103,7 @@ class ExigencyController extends Controller
 
     /**
      * Displays a form to edit an existing Exigency entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/edit", name="exigency_edit")
      * @Template()
      */
@@ -128,7 +129,7 @@ class ExigencyController extends Controller
 
     /**
      * Edits an existing Exigency entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/update", name="exigency_update")
      * @Method("post")
      * @Template("PasaRequirementBundle:Exigency:edit.html.twig")
@@ -166,7 +167,7 @@ class ExigencyController extends Controller
 
     /**
      * Deletes a Exigency entity.
-     *
+     * @Secure(roles="ROLE_ADMIN")
      * @Route("/{id}/delete", name="exigency_delete")
      * @Method("post")
      */
