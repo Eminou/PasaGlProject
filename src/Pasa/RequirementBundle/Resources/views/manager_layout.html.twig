@@ -18,6 +18,8 @@
                 <ul>
                 {% block content_header_more %}
                 <li class='active'><a href="{{ path('managerfront_project') }}"><span>Project</span></a></li>
+                <li class='active'><a href="{{ path('managerfront_exigency') }}"><span>Exigency</span></a></li>
+                <li class='active'><a href="{{ path('managerfront_collaborator') }}"><span>Collaborator</span></a></li>
                 {% endblock %}
                 </ul>
                 <span style="float: right;">logged in as <strong>{{ app.user ? app.user.username : 'Anonymous' }}</strong> <a href="{{ path('_logout') }}">Logout</a></span>

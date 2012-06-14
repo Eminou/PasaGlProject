@@ -1,0 +1,61 @@
+{% extends 'PasaRequirementBundle::manager_layout.html.twig' %}
+
+{% block content %}
+<h1>Exigency</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Functionality</th>
+            <td>{{ entity.functionality }}</td>
+        </tr>
+        <tr>
+            <th>Number</th>
+            <td>{{ entity.number }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ entity.description }}</td>
+        </tr>
+        <tr>
+            <th>Priority</th>
+            <td>{{ entity.priority }}</td>
+        </tr>
+        <tr>
+            <th>Charge</th>
+            <td>{{ entity.charge }}</td>
+        </tr>
+        <tr>
+            <th>Start_date</th>
+            <td>{{ entity.startdate|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>End_date</th>
+            <td>{{ entity.enddate|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('exigency') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('exigency_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('exigency_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+{% endblock %}

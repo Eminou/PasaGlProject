@@ -48,7 +48,7 @@ class SecuredController extends Controller
         } else if (true === $this->get('security.context')->isGranted('ROLE_MANAGER')) {
             return $this->redirect($this->generateUrl('managerfront'));
         } else {
-            
+            return $this->redirect($this->generateUrl('collaboratorfront'));
         }
     }
 

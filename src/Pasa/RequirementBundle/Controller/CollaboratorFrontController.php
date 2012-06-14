@@ -6,12 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Pasa\RequirementBundle\Entity\Project;
-use Pasa\RequirementBundle\Form\ProjectType;
-use Pasa\RequirementBundle\Entity\Exigency;
-use Pasa\RequirementBundle\Form\ExigencyType;
-use Pasa\RequirementBundle\Entity\Collaborator;
-use Pasa\RequirementBundle\Form\CollaboratorType;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
 
@@ -405,10 +399,10 @@ class ManagerFrontController extends Controller
    /**
      * Lists all Exigency entities.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/exigency", name="managerfront_exigency")
+     * @Route("/", name="managerfront_exigency")
      * @Template()
      */
-    public function exigency_indexAction()
+    public function managerfront_indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -423,7 +417,7 @@ class ManagerFrontController extends Controller
      * @Route("/{id}/show", name="managerfront_exigency_show")
      * @Template()
      */
-    public function exigency_showAction($id)
+    public function managerfront_showAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -446,7 +440,7 @@ class ManagerFrontController extends Controller
      * @Route("/new", name="managerfront_exigency_new")
      * @Template()
      */
-    public function exigency_newAction()
+    public function managerfront_newAction()
     {
         $entity = new Exigency();
         $form   = $this->createForm(new ExigencyType(), $entity);
@@ -464,7 +458,7 @@ class ManagerFrontController extends Controller
      * @Method("post")
      * @Template("PasaRequirementBundle:Exigency:new.html.twig")
      */
-    public function exigency_createAction()
+    public function managerfront_createAction()
     {
         $entity  = new Exigency();
         $request = $this->getRequest();
@@ -492,7 +486,7 @@ class ManagerFrontController extends Controller
      * @Route("/{id}/edit", name="managerfront_exigency_edit")
      * @Template()
      */
-    public function exigency_editAction($id)
+    public function managerfront_editAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -519,7 +513,7 @@ class ManagerFrontController extends Controller
      * @Method("post")
      * @Template("PasaRequirementBundle:Exigency:edit.html.twig")
      */
-    public function exigency_updateAction($id)
+    public function managerfront_updateAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
@@ -556,7 +550,7 @@ class ManagerFrontController extends Controller
      * @Route("/{id}/delete", name="managerfront_exigency_delete")
      * @Method("post")
      */
-    public function exigency_deleteAction($id)
+    public function managerfront_deleteAction($id)
     {
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
@@ -578,7 +572,7 @@ class ManagerFrontController extends Controller
         return $this->redirect($this->generateUrl('exigency'));
     }
 
-    private function exigency_createDeleteForm($id)
+    private function managerfront_createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
             ->add('id', 'hidden')
