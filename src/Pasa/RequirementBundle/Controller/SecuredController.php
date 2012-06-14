@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use JMS\SecurityExtraBundle\Annotation\Secure;
 
 /**
  * Secured controller.
@@ -37,6 +36,20 @@ class SecuredController extends Controller
     public function securityCheckAction()
     {
         // The security layer will intercept this request
+    }
+
+    /**
+     * @Route("/")
+     */
+    public function redirectAction() {
+        // Forward authenticated users based on their roles
+        if (true === $this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            return $this->redirect($this->generateUrl('default'));
+        } else if (true === $this->get('security.context')->isGranted('ROLE_MANAGER')) {
+            return $this->redirect($this->generateUrl('managerfront'));
+        } else {
+            
+        }
     }
 
     /**

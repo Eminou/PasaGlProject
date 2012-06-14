@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Manager{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+{% stylesheets '@PasaRequirementBundle/Resources/public/css/*' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+    </head>
+    <body>
+            {% if app.session.flash('notice') %}
+            <div class="flash-message">
+                <em>Notice</em>: {{ app.session.flash('notice') }}
+            </div>
+            {% endif %}
+
+            {% block content_header %}
+             <div class='cssmenu'>
+                <ul>
+                {% block content_header_more %}
+                <li class='active'><a href="{{ path('managerfront_project') }}"><span>Project</span></a></li>
+                {% endblock %}
+                </ul>
+                <span style="float: right;">logged in as <strong>{{ app.user ? app.user.username : 'Anonymous' }}</strong> <a href="{{ path('_logout') }}">Logout</a></span>
+            </div>                   
+                <div style="clear: both"></div>
+            {% endblock %}
+
+                <div class="content">
+                {% block content %}
+                {% endblock %}
+                    </div>
+                </div>
+            </body>
+        </html>

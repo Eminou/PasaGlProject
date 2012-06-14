@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>{% block title %}Exigency{% endblock %}</title>
+        <title>{% block title %}Administrator{% endblock %}</title>
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+{% stylesheets '@PasaRequirementBundle/Resources/public/css/*' %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
     </head>
     <body>
             {% if app.session.flash('notice') %}
@@ -11,14 +12,19 @@
                 <em>Notice</em>: {{ app.session.flash('notice') }}
             </div>
             {% endif %}
-
             {% block content_header %}
-            <div id="menu" style="float: right">
-                    {% block content_header_more %}
-                    <span>logged in as <strong>{{ app.user ? app.user.username : 'Anonymous' }}</strong> <a href="{{ path('_logout') }}">Logout</a></span> 
-                    {% endblock %}
-                </div>
-
+             <div class='cssmenu'>
+                <ul>
+                {% block content_header_more %}
+                <li class='active'><a href="{{ path('manager') }}"><span>Manager</span></a></li>
+                <li><a href="{{ path('collaborator') }}"><span>Collaborator</span></a></li>
+                <li><a href="{{ path('project') }}"><span>Project</span></a></li>
+                <li><a href="{{ path('exigency') }}"><span>Exigency</span></a></li>
+                <li><a href="{{ path('progression') }}"><span>Progression</span></a></li>
+                {% endblock %}
+                </ul>
+                <span style="float: right;color:white;border:1px solid white;">logged in as <strong>{{ app.user ? app.user.username : 'Anonymous' }}</strong> <a href="{{ path('_logout') }}">Logout</a></span>
+            </div>                   
                 <div style="clear: both"></div>
             {% endblock %}
 
