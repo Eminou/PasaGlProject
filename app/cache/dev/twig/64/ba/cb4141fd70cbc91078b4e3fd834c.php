@@ -32,7 +32,7 @@ class __TwigTemplate_64bacb4141fd70cbc91078b4e3fd834c extends Twig_Template
 
 <form action=\"";
         // line 6
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("project_update", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("managerfront_project_update", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderEnctype($this->getContext($context, "edit_form"));
         echo ">
@@ -49,7 +49,7 @@ class __TwigTemplate_64bacb4141fd70cbc91078b4e3fd834c extends Twig_Template
     <li>
         <a href=\"";
         // line 15
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("project"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("managerfront_project"), "html", null, true);
         echo "\">
             Back to the list
         </a>
@@ -57,7 +57,7 @@ class __TwigTemplate_64bacb4141fd70cbc91078b4e3fd834c extends Twig_Template
     <li>
         <form action=\"";
         // line 20
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("project_delete", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("managerfront_project_delete", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
         echo "\" method=\"post\">
             ";
         // line 21

@@ -22,17 +22,17 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('project') }}">
+        <a href="{{ path('managerfront_project') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('project_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('managerfront_project_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
     <li>
-        <form action="{{ path('project_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('managerfront_project_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>

@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Exigency creation</h1>
 
-<form action="{{ path('exigency_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('managerfront_exigency_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
         <button type="submit">Create</button>
@@ -12,7 +12,7 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('exigency') }}">
+        <a href="{{ path('managerfront_exigency') }}">
             Back to the list
         </a>
     </li>

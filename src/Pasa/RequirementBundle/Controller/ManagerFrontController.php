@@ -106,7 +106,7 @@ class ManagerFrontController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('project_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('managerfront_project_show', array('id' => $entity->getId())));
             
         }
 
@@ -170,7 +170,7 @@ class ManagerFrontController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('project_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('managerfront_project_edit', array('id' => $id)));
         }
 
         return array(
@@ -205,16 +205,9 @@ class ManagerFrontController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('project'));
+        return $this->redirect($this->generateUrl('managerfront_project'));
     }
-
-    private function project_createDeleteForm($id)
-    {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
-    }
+    
     /**
      * Lists all Project entities.
      * @Secure(roles="ROLE_MANAGER")
@@ -233,7 +226,7 @@ class ManagerFrontController extends Controller
     /**
      * Finds and displays a Collaborator entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/show", name="managerfront_collaborator_show")
+     * @Route("/collaborator/{id}/show", name="managerfront_collaborator_show")
      * @Template()
      */
     public function collaborator_showAction($id)
@@ -256,7 +249,7 @@ class ManagerFrontController extends Controller
     /**
      * Displays a form to create a new Collaborator entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/new", name="managerfront_collaborator_new")
+     * @Route("/collaborator/new", name="managerfront_collaborator_new")
      * @Template()
      */
     public function collaborator_newAction()
@@ -273,7 +266,7 @@ class ManagerFrontController extends Controller
     /**
      * Creates a new Collaborator entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/create", name="managerfront_collaborator_create")
+     * @Route("/collaborator/create", name="managerfront_collaborator_create")
      * @Method("post")
      * @Template("PasaRequirementBundle:Collaborator:new.html.twig")
      */
@@ -293,7 +286,7 @@ class ManagerFrontController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('collaborator_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('managerfront_collaborator_show', array('id' => $entity->getId())));
             
         }
 
@@ -306,7 +299,7 @@ class ManagerFrontController extends Controller
     /**
      * Displays a form to edit an existing Collaborator entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/edit", name="managerfront_collaborator_edit")
+     * @Route("/collaborator/{id}/edit", name="managerfront_collaborator_edit")
      * @Template()
      */
     public function collaborator_editAction($id)
@@ -332,7 +325,7 @@ class ManagerFrontController extends Controller
     /**
      * Edits an existing Collaborator entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/update", name="managerfront_collaborator_update")
+     * @Route("/collaborator/{id}/update", name="managerfront_collaborator_update")
      * @Method("post")
      * @Template("PasaRequirementBundle:Collaborator:edit.html.twig")
      */
@@ -357,7 +350,7 @@ class ManagerFrontController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('collaborator_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('managerfront_collaborator_edit', array('id' => $id)));
         }
 
         return array(
@@ -370,7 +363,7 @@ class ManagerFrontController extends Controller
     /**
      * Deletes a Collaborator entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/delete", name="managerfront_collaborator_delete")
+     * @Route("/collaborator/{id}/delete", name="managerfront_collaborator_delete")
      * @Method("post")
      */
     public function collaborator_deleteAction($id)
@@ -392,16 +385,9 @@ class ManagerFrontController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('collaborator'));
+        return $this->redirect($this->generateUrl('managerfront_collaborator'));
     }
 
-    private function collaborator_createDeleteForm($id)
-    {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
-    }
    /**
      * Lists all Exigency entities.
      * @Secure(roles="ROLE_MANAGER")
@@ -420,7 +406,7 @@ class ManagerFrontController extends Controller
     /**
      * Finds and displays a Exigency entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/show", name="managerfront_exigency_show")
+     * @Route("/exigency/{id}/show", name="managerfront_exigency_show")
      * @Template()
      */
     public function exigency_showAction($id)
@@ -443,7 +429,7 @@ class ManagerFrontController extends Controller
     /**
      * Displays a form to create a new Exigency entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/new", name="managerfront_exigency_new")
+     * @Route("/exigency/new", name="managerfront_exigency_new")
      * @Template()
      */
     public function exigency_newAction()
@@ -460,7 +446,7 @@ class ManagerFrontController extends Controller
     /**
      * Creates a new Exigency entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/create", name="managerfront_exigency_create")
+     * @Route("/exigency/create", name="managerfront_exigency_create")
      * @Method("post")
      * @Template("PasaRequirementBundle:Exigency:new.html.twig")
      */
@@ -476,7 +462,7 @@ class ManagerFrontController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('exigency_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('managerfront_exigency_show', array('id' => $entity->getId())));
             
         }
 
@@ -489,7 +475,7 @@ class ManagerFrontController extends Controller
     /**
      * Displays a form to edit an existing Exigency entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/edit", name="managerfront_exigency_edit")
+     * @Route("/exigency/{id}/edit", name="managerfront_exigency_edit")
      * @Template()
      */
     public function exigency_editAction($id)
@@ -515,7 +501,7 @@ class ManagerFrontController extends Controller
     /**
      * Edits an existing Exigency entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/update", name="managerfront_exigency_update")
+     * @Route("/exigency/{id}/update", name="managerfront_exigency_update")
      * @Method("post")
      * @Template("PasaRequirementBundle:Exigency:edit.html.twig")
      */
@@ -540,7 +526,7 @@ class ManagerFrontController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('exigency_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('managerfront_exigency_edit', array('id' => $id)));
         }
 
         return array(
@@ -553,7 +539,7 @@ class ManagerFrontController extends Controller
     /**
      * Deletes a Exigency entity.
      * @Secure(roles="ROLE_MANAGER")
-     * @Route("/{id}/delete", name="managerfront_exigency_delete")
+     * @Route("/exigency/{id}/delete", name="managerfront_exigency_delete")
      * @Method("post")
      */
     public function exigency_deleteAction($id)
@@ -575,10 +561,10 @@ class ManagerFrontController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('exigency'));
+        return $this->redirect($this->generateUrl('managerfront_exigency'));
     }
 
-    private function exigency_createDeleteForm($id)
+    private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
             ->add('id', 'hidden')
