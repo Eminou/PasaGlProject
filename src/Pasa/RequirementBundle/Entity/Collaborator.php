@@ -15,9 +15,9 @@ class Collaborator extends User {
 
     // ...
     /**
-     * @ORM\OneToMany(targetEntity="Progression", mappedBy="collaborator")
+     * @ORM\OneToMany(targetEntity="Exigency", mappedBy="collaborator")
      */
-    protected $progressions;
+    protected $exigencies;
 
     /**
      * @ORM\ManyToOne(targetEntity="Manager", inversedBy="collaborators")
@@ -28,7 +28,7 @@ class Collaborator extends User {
     public function __construct() {
         parent::__construct();
 
-        $this->progressions = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->exigencies = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -50,25 +50,30 @@ class Collaborator extends User {
     }
 
     /**
-     * Add progressions
+     * Add exigencies
      *
-     * @param Pasa\RequirementBundle\Entity\Progression $progressions
+     * @param Pasa\RequirementBundle\Entity\Progression $exigencies
      */
-    public function addProgression(\Pasa\RequirementBundle\Entity\Progression $progressions) {
-        $this->progressions[] = $progressions;
+    public function addProgression(\Pasa\RequirementBundle\Entity\Progression $exigencies) {
+        $this->exigencies[] = $exigencies;
     }
 
     /**
-     * Get progressions
+     * Get exigencies
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getProgressions() {
-        return $this->progressions;
+    public function getExigencies() {
+        return $this->exigencies;
     }
 
     public function getRoles() {
         return array('ROLE_COLLABORATOR');
     }
+    
+    public function setExigencies($exigencies) {
+        $this->exigencies = $exigencies;
+    }
+
 
 }

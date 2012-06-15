@@ -183,6 +183,56 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_collaboratorfront_exigency_delete:
 
+        // collaboratorfront_progression
+        if ($pathinfo === '/collaboratorfront/progression') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::progression_indexAction',  '_route' => 'collaboratorfront_progression',);
+        }
+
+        // collaboratorfront_progression_show
+        if (0 === strpos($pathinfo, '/collaboratorfront/progression') && preg_match('#^/collaboratorfront/progression/(?P<id>[^/]+?)/show$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::progression_showAction',)), array('_route' => 'collaboratorfront_progression_show'));
+        }
+
+        // collaboratorfront_progression_new
+        if ($pathinfo === '/collaboratorfront/progression/new') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::progression_newAction',  '_route' => 'collaboratorfront_progression_new',);
+        }
+
+        // collaboratorfront_progression_create
+        if ($pathinfo === '/collaboratorfront/progression/create') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_collaboratorfront_progression_create;
+            }
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::progression_createAction',  '_route' => 'collaboratorfront_progression_create',);
+        }
+        not_collaboratorfront_progression_create:
+
+        // collaboratorfront_progression_edit
+        if (0 === strpos($pathinfo, '/collaboratorfront/progression') && preg_match('#^/collaboratorfront/progression/(?P<id>[^/]+?)/edit$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::progression_editAction',)), array('_route' => 'collaboratorfront_progression_edit'));
+        }
+
+        // collaboratorfront_progression_update
+        if (0 === strpos($pathinfo, '/collaboratorfront/progression') && preg_match('#^/collaboratorfront/progression/(?P<id>[^/]+?)/update$#s', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_collaboratorfront_progression_update;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::collaborator_updateAction',)), array('_route' => 'collaboratorfront_progression_update'));
+        }
+        not_collaboratorfront_progression_update:
+
+        // collaboratorfront_progression_delete
+        if (0 === strpos($pathinfo, '/collaboratorfront/progression') && preg_match('#^/collaboratorfront/progression/(?P<id>[^/]+?)/delete$#s', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_collaboratorfront_progression_delete;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::collaborator_deleteAction',)), array('_route' => 'collaboratorfront_progression_delete'));
+        }
+        not_collaboratorfront_progression_delete:
+
         // manager
         if (rtrim($pathinfo, '/') === '/manager') {
             if (substr($pathinfo, -1) !== '/') {
@@ -341,6 +391,59 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ProgressionController::deleteAction',)), array('_route' => 'progression_delete'));
         }
         not_progression_delete:
+
+        // feature
+        if (rtrim($pathinfo, '/') === '/feature') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'feature');
+            }
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::indexAction',  '_route' => 'feature',);
+        }
+
+        // feature_show
+        if (0 === strpos($pathinfo, '/feature') && preg_match('#^/feature/(?P<id>[^/]+?)/show$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::showAction',)), array('_route' => 'feature_show'));
+        }
+
+        // feature_new
+        if ($pathinfo === '/feature/new') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::newAction',  '_route' => 'feature_new',);
+        }
+
+        // feature_create
+        if ($pathinfo === '/feature/create') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_feature_create;
+            }
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::createAction',  '_route' => 'feature_create',);
+        }
+        not_feature_create:
+
+        // feature_edit
+        if (0 === strpos($pathinfo, '/feature') && preg_match('#^/feature/(?P<id>[^/]+?)/edit$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::editAction',)), array('_route' => 'feature_edit'));
+        }
+
+        // feature_update
+        if (0 === strpos($pathinfo, '/feature') && preg_match('#^/feature/(?P<id>[^/]+?)/update$#s', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_feature_update;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::updateAction',)), array('_route' => 'feature_update'));
+        }
+        not_feature_update:
+
+        // feature_delete
+        if (0 === strpos($pathinfo, '/feature') && preg_match('#^/feature/(?P<id>[^/]+?)/delete$#s', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_feature_delete;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::deleteAction',)), array('_route' => 'feature_delete'));
+        }
+        not_feature_delete:
 
         // project
         if (rtrim($pathinfo, '/') === '/project') {
@@ -552,6 +655,56 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::exigency_deleteAction',)), array('_route' => 'managerfront_exigency_delete'));
         }
         not_managerfront_exigency_delete:
+
+        // managerfront_feature
+        if ($pathinfo === '/managerfront/feature') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::feature_indexAction',  '_route' => 'managerfront_feature',);
+        }
+
+        // managerfront_feature_show
+        if (0 === strpos($pathinfo, '/managerfront/feature') && preg_match('#^/managerfront/feature/(?P<id>[^/]+?)/show$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::feature_showAction',)), array('_route' => 'managerfront_feature_show'));
+        }
+
+        // managerfront_feature_new
+        if ($pathinfo === '/managerfront/feature/new') {
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::feature_newAction',  '_route' => 'managerfront_feature_new',);
+        }
+
+        // managerfront_feature_create
+        if ($pathinfo === '/managerfront/feature/create') {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_managerfront_feature_create;
+            }
+            return array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::feature_createAction',  '_route' => 'managerfront_feature_create',);
+        }
+        not_managerfront_feature_create:
+
+        // managerfront_feature_edit
+        if (0 === strpos($pathinfo, '/managerfront/feature') && preg_match('#^/managerfront/feature/(?P<id>[^/]+?)/edit$#s', $pathinfo, $matches)) {
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::feature_editAction',)), array('_route' => 'managerfront_feature_edit'));
+        }
+
+        // managerfront_feature_update
+        if (0 === strpos($pathinfo, '/managerfront/feature') && preg_match('#^/managerfront/feature/(?P<id>[^/]+?)/update$#s', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_managerfront_feature_update;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::feature_updateAction',)), array('_route' => 'managerfront_feature_update'));
+        }
+        not_managerfront_feature_update:
+
+        // managerfront_feature_delete
+        if (0 === strpos($pathinfo, '/managerfront/feature') && preg_match('#^/managerfront/feature/(?P<id>[^/]+?)/delete$#s', $pathinfo, $matches)) {
+            if ($this->context->getMethod() != 'POST') {
+                $allow[] = 'POST';
+                goto not_managerfront_feature_delete;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ManagerFrontController::feature_deleteAction',)), array('_route' => 'managerfront_feature_delete'));
+        }
+        not_managerfront_feature_delete:
 
         // collaborator
         if (rtrim($pathinfo, '/') === '/collaborator') {

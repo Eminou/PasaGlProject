@@ -66,6 +66,18 @@ class PasaRequirementBundleEntityManagerProxy extends \Pasa\RequirementBundle\En
         return parent::getRoles();
     }
 
+    public function getFeatures()
+    {
+        $this->__load();
+        return parent::getFeatures();
+    }
+
+    public function setFeatures($features)
+    {
+        $this->__load();
+        return parent::setFeatures($features);
+    }
+
     public function getId()
     {
         $this->__load();
@@ -201,7 +213,7 @@ class PasaRequirementBundleEntityManagerProxy extends \Pasa\RequirementBundle\En
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'first_name', 'last_name', 'username', 'salt', 'password', 'email', 'is_active', 'collaborators', 'projects');
+        return array('__isInitialized__', 'id', 'first_name', 'last_name', 'username', 'salt', 'password', 'email', 'is_active', 'collaborators', 'projects', 'features');
     }
 
     public function __clone()

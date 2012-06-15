@@ -66,13 +66,13 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
         // line 15
         echo "            ";
         $this->displayBlock('content_header', $context, $blocks);
-        // line 30
+        // line 31
         echo "
                 <div class=\"content\">
                 ";
-        // line 32
+        // line 33
         $this->displayBlock('content', $context, $blocks);
-        // line 34
+        // line 35
         echo "                    </div>
                 </div>
             </body>
@@ -95,10 +95,10 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
                 ";
         // line 18
         $this->displayBlock('content_header_more', $context, $blocks);
-        // line 25
+        // line 26
         echo "                </ul>
                 <span style=\"float: right;color:white;border:1px solid white;\">logged in as <strong>";
-        // line 26
+        // line 27
         echo twig_escape_filter($this->env, (($this->getAttribute($this->getContext($context, "app"), "user")) ? ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "username")) : ("Anonymous")), "html", null, true);
         echo "</strong> <a href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_logout"), "html", null, true);
@@ -125,19 +125,23 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
         echo "\"><span>Project</span></a></li>
                 <li><a href=\"";
         // line 22
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("feature"), "html", null, true);
+        echo "\"><span>Feature</span></a></li>
+                <li><a href=\"";
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("exigency"), "html", null, true);
         echo "\"><span>Exigency</span></a></li>
                 <li><a href=\"";
-        // line 23
+        // line 24
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("progression"), "html", null, true);
         echo "\"><span>Progression</span></a></li>
                 ";
     }
 
-    // line 32
+    // line 33
     public function block_content($context, array $blocks = array())
     {
-        // line 33
+        // line 34
         echo "                ";
     }
 
@@ -153,6 +157,6 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  139 => 33,  136 => 32,  130 => 23,  118 => 20,  100 => 26,  91 => 16,  121 => 48,  110 => 18,  85 => 29,  43 => 16,  112 => 55,  61 => 25,  119 => 21,  114 => 43,  101 => 25,  98 => 36,  96 => 34,  83 => 5,  76 => 33,  68 => 30,  65 => 15,  56 => 11,  21 => 1,  58 => 20,  50 => 8,  209 => 84,  205 => 82,  196 => 79,  192 => 78,  189 => 77,  178 => 71,  176 => 70,  165 => 63,  161 => 61,  152 => 58,  148 => 57,  145 => 56,  141 => 55,  134 => 50,  132 => 32,  127 => 46,  123 => 22,  109 => 39,  93 => 33,  90 => 32,  54 => 10,  133 => 44,  124 => 41,  111 => 19,  107 => 36,  80 => 26,  69 => 30,  63 => 18,  60 => 20,  52 => 22,  26 => 3,  97 => 25,  95 => 18,  88 => 15,  78 => 25,  75 => 24,  71 => 14,  92 => 33,  86 => 38,  79 => 34,  46 => 10,  37 => 10,  25 => 4,  82 => 5,  72 => 32,  64 => 15,  53 => 13,  49 => 11,  44 => 14,  42 => 7,  34 => 5,  29 => 4,  22 => 4,  33 => 6,  27 => 5,  19 => 1,  40 => 6,  20 => 2,  224 => 96,  215 => 90,  211 => 88,  204 => 84,  200 => 83,  195 => 80,  193 => 79,  190 => 78,  188 => 77,  185 => 76,  179 => 72,  177 => 71,  171 => 67,  162 => 63,  158 => 61,  156 => 60,  153 => 59,  146 => 55,  142 => 54,  137 => 51,  131 => 48,  126 => 22,  120 => 39,  117 => 47,  103 => 36,  99 => 34,  77 => 35,  74 => 34,  57 => 15,  47 => 17,  39 => 7,  32 => 11,  24 => 3,  30 => 4,  23 => 3,  17 => 1,  135 => 50,  129 => 31,  122 => 21,  116 => 56,  113 => 19,  108 => 40,  104 => 50,  102 => 37,  94 => 33,  89 => 16,  87 => 30,  84 => 28,  81 => 36,  73 => 27,  70 => 29,  67 => 24,  62 => 21,  59 => 12,  55 => 23,  51 => 18,  48 => 21,  41 => 9,  38 => 8,  35 => 7,  31 => 6,  28 => 3,);
+        return array (  143 => 34,  140 => 33,  130 => 23,  118 => 20,  100 => 27,  91 => 16,  121 => 48,  110 => 18,  85 => 29,  43 => 16,  112 => 55,  61 => 25,  119 => 21,  114 => 43,  101 => 25,  98 => 36,  96 => 34,  83 => 5,  76 => 33,  68 => 31,  65 => 15,  56 => 11,  21 => 1,  58 => 20,  50 => 8,  209 => 84,  205 => 82,  196 => 79,  192 => 78,  189 => 77,  178 => 71,  176 => 70,  165 => 63,  161 => 61,  152 => 58,  148 => 57,  145 => 56,  141 => 55,  134 => 24,  132 => 32,  127 => 46,  123 => 22,  109 => 39,  93 => 33,  90 => 32,  54 => 10,  133 => 44,  124 => 41,  111 => 19,  107 => 36,  80 => 26,  69 => 30,  63 => 18,  60 => 20,  52 => 22,  26 => 3,  97 => 26,  95 => 18,  88 => 15,  78 => 25,  75 => 24,  71 => 14,  92 => 33,  86 => 38,  79 => 34,  46 => 10,  37 => 10,  25 => 4,  82 => 5,  72 => 33,  64 => 15,  53 => 13,  49 => 11,  44 => 14,  42 => 7,  34 => 5,  29 => 4,  22 => 4,  33 => 6,  27 => 5,  19 => 1,  40 => 6,  20 => 2,  224 => 96,  215 => 90,  211 => 88,  204 => 84,  200 => 83,  195 => 80,  193 => 79,  190 => 78,  188 => 77,  185 => 76,  179 => 72,  177 => 71,  171 => 67,  162 => 63,  158 => 61,  156 => 60,  153 => 59,  146 => 55,  142 => 54,  137 => 51,  131 => 48,  126 => 22,  120 => 39,  117 => 47,  103 => 36,  99 => 34,  77 => 35,  74 => 35,  57 => 15,  47 => 17,  39 => 7,  32 => 11,  24 => 3,  30 => 4,  23 => 3,  17 => 1,  135 => 50,  129 => 31,  122 => 21,  116 => 56,  113 => 19,  108 => 40,  104 => 50,  102 => 37,  94 => 33,  89 => 16,  87 => 30,  84 => 28,  81 => 36,  73 => 27,  70 => 29,  67 => 24,  62 => 21,  59 => 12,  55 => 23,  51 => 18,  48 => 21,  41 => 9,  38 => 8,  35 => 7,  31 => 6,  28 => 3,);
     }
 }

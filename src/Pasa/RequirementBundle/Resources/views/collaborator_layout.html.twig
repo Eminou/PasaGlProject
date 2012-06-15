@@ -18,6 +18,7 @@
                 <ul>
                 {% block content_header_more %}
                 <li class='active'><a href="{{ path('collaboratorfront_exigency') }}"><span>Exigency</span></a></li>
+                <li class='active'><a href="{{ path('collaboratorfront_progression') }}"><span>Progression</span></a></li>
                 {% endblock %}
                 </ul>
                 <span style="float: right;">logged in as <strong>{{ app.user ? app.user.username : 'Anonymous' }}</strong> <a href="{{ path('_logout') }}">Logout</a></span>

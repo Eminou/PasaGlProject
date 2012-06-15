@@ -18,13 +18,6 @@ class Progression {
      * @ORM\JoinColumn(name="exigency_id", referencedColumnName="id")
      */
     private $exigency;
-    
-    // ...
-    /**
-     * @ORM\ManyToOne(targetEntity="Collaborator", inversedBy="progressions")
-     * @ORM\JoinColumn(name="collaborator_id", referencedColumnName="id")
-     */
-    private $collaborator;
 
     /**
      * @var integer $id
@@ -112,25 +105,5 @@ class Progression {
     public function getExigency()
     {
         return $this->exigency;
-    }
-
-    /**
-     * Set collaborator
-     *
-     * @param Pasa\RequirementBundle\Entity\Collaborator $collaborator
-     */
-    public function setCollaborator(\Pasa\RequirementBundle\Entity\Collaborator $collaborator)
-    {
-        $this->collaborator = $collaborator;
-    }
-
-    /**
-     * Get collaborator
-     *
-     * @return Pasa\RequirementBundle\Entity\Collaborator 
-     */
-    public function getCollaborator()
-    {
-        return $this->collaborator;
     }
 }

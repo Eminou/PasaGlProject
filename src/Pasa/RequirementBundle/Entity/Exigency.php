@@ -24,7 +24,21 @@ class Exigency {
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
      */
     private $project;
+    
+    // ...
+    /**
+     * @ORM\ManyToOne(targetEntity="Feature", inversedBy="exigencies")
+     * @ORM\JoinColumn(name="feature_id", referencedColumnName="id")
+     */
+    private $feature;
 
+    // ...
+    /**
+     * @ORM\ManyToOne(targetEntity="Collaborator", inversedBy="exigencies")
+     * @ORM\JoinColumn(name="collaborator_id", referencedColumnName="id")
+     */
+    private $collaborator;
+    
     public function __construct() {
         $this->progressions = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -260,6 +274,36 @@ class Exigency {
 
     public function __toString() {
         return $this->functionality;
+    }
+    public function getCollaborator() {
+        return $this->collaborator;
+    }
+
+    public function setCollaborator($collaborator) {
+        $this->collaborator = $collaborator;
+    }
+
+    public function getStart_date() {
+        return $this->start_date;
+    }
+
+    public function setStart_date($start_date) {
+        $this->start_date = $start_date;
+    }
+
+    public function getEnd_date() {
+        return $this->end_date;
+    }
+
+    public function setEnd_date($end_date) {
+        $this->end_date = $end_date;
+    }
+    public function getFeature() {
+        return $this->feature;
+    }
+
+    public function setFeature($feature) {
+        $this->feature = $feature;
     }
 
 }

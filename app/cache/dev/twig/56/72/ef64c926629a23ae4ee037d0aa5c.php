@@ -66,13 +66,13 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
         // line 15
         echo "            ";
         $this->displayBlock('content_header', $context, $blocks);
-        // line 30
+        // line 31
         echo "
                 <div class=\"content\">
                 ";
-        // line 32
+        // line 33
         $this->displayBlock('content', $context, $blocks);
-        // line 34
+        // line 35
         echo "                    </div>
                 </div>
             </body>
@@ -95,10 +95,10 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
                 ";
         // line 18
         $this->displayBlock('content_header_more', $context, $blocks);
-        // line 25
+        // line 26
         echo "                </ul>
                 <span style=\"float: right;color:white;border:1px solid white;\">logged in as <strong>";
-        // line 26
+        // line 27
         echo twig_escape_filter($this->env, (($this->getAttribute($this->getContext($context, "app"), "user")) ? ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "user"), "username")) : ("Anonymous")), "html", null, true);
         echo "</strong> <a href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_logout"), "html", null, true);
@@ -125,19 +125,23 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
         echo "\"><span>Project</span></a></li>
                 <li><a href=\"";
         // line 22
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("feature"), "html", null, true);
+        echo "\"><span>Feature</span></a></li>
+                <li><a href=\"";
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("exigency"), "html", null, true);
         echo "\"><span>Exigency</span></a></li>
                 <li><a href=\"";
-        // line 23
+        // line 24
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("progression"), "html", null, true);
         echo "\"><span>Progression</span></a></li>
                 ";
     }
 
-    // line 32
+    // line 33
     public function block_content($context, array $blocks = array())
     {
-        // line 33
+        // line 34
         echo "                ";
     }
 
@@ -153,6 +157,6 @@ class __TwigTemplate_5672ef64c926629a23ae4ee037d0aa5c extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  139 => 33,  136 => 32,  130 => 23,  126 => 22,  122 => 21,  118 => 20,  113 => 19,  110 => 18,  100 => 26,  97 => 25,  95 => 18,  91 => 16,  88 => 15,  82 => 5,  74 => 34,  72 => 32,  68 => 30,  65 => 15,  59 => 12,  56 => 11,  54 => 10,  50 => 8,  35 => 7,  31 => 6,  27 => 5,  21 => 1,  29 => 4,  26 => 3,);
+        return array (  143 => 34,  140 => 33,  134 => 24,  130 => 23,  126 => 22,  122 => 21,  118 => 20,  113 => 19,  110 => 18,  100 => 27,  97 => 26,  95 => 18,  91 => 16,  88 => 15,  82 => 5,  74 => 35,  72 => 33,  68 => 31,  65 => 15,  59 => 12,  56 => 11,  54 => 10,  35 => 7,  31 => 6,  27 => 5,  21 => 1,  62 => 21,  58 => 20,  50 => 8,  39 => 7,  33 => 6,  29 => 4,  26 => 3,);
     }
 }

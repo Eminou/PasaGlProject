@@ -12,6 +12,8 @@ use Pasa\RequirementBundle\Entity\Exigency;
 use Pasa\RequirementBundle\Form\ExigencyType;
 use Pasa\RequirementBundle\Entity\Collaborator;
 use Pasa\RequirementBundle\Form\CollaboratorType;
+use Pasa\RequirementBundle\Entity\Feature;
+use Pasa\RequirementBundle\Form\FeatureType;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
 
@@ -562,6 +564,181 @@ class ManagerFrontController extends Controller
         }
 
         return $this->redirect($this->generateUrl('managerfront_exigency'));
+    }
+    /**
+     * Lists all Feature entities.
+     * @Secure(roles="ROLE_MANAGER")
+     * @Route("/feature", name="managerfront_feature")
+     * @Template()
+     */
+    public function feature_indexAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entities = $em->getRepository('PasaRequirementBundle:Feature')->findAll();
+
+        return array('entities' => $entities);
+    }
+
+    /**
+     * Finds and displays a Feature entity.
+     * @Secure(roles="ROLE_MANAGER")
+     * @Route("/feature/{id}/show", name="managerfront_feature_show")
+     * @Template()
+     */
+    public function feature_showAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('PasaRequirementBundle:Feature')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Feature entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'delete_form' => $deleteForm->createView(),        );
+    }
+
+    /**
+     * Displays a form to create a new Feature entity.
+     * @Secure(roles="ROLE_MANAGER")
+     * @Route("/feature/new", name="managerfront_feature_new")
+     * @Template()
+     */
+    public function feature_newAction()
+    {
+        $entity = new Feature();
+        $form   = $this->createForm(new FeatureType(), $entity);
+
+        return array(
+            'entity' => $entity,
+            'form'   => $form->createView()
+        );
+    }
+
+    /**
+     * Creates a new Feature entity.
+     * @Secure(roles="ROLE_MANAGER")
+     * @Route("/feature/create", name="managerfront_feature_create")
+     * @Method("post")
+     * @Template("PasaRequirementBundle:Feature:new.html.twig")
+     */
+    public function feature_createAction()
+    {
+        $entity  = new Feature();
+        $request = $this->getRequest();
+        $form    = $this->createForm(new FeatureType(), $entity);
+        $form->bindRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('managerfront_feature_show', array('id' => $entity->getId())));
+            
+        }
+
+        return array(
+            'entity' => $entity,
+            'form'   => $form->createView()
+        );
+    }
+
+    /**
+     * Displays a form to edit an existing Feature entity.
+     * @Secure(roles="ROLE_MANAGER")
+     * @Route("/feature/{id}/edit", name="managerfront_feature_edit")
+     * @Template()
+     */
+    public function feature_editAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('PasaRequirementBundle:Feature')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Feature entity.');
+        }
+
+        $editForm = $this->createForm(new FeatureType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Edits an existing Feature entity.
+     * @Secure(roles="ROLE_MANAGER")
+     * @Route("/feature/{id}/update", name="managerfront_feature_update")
+     * @Method("post")
+     * @Template("PasaRequirementBundle:Feature:edit.html.twig")
+     */
+    public function feature_updateAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('PasaRequirementBundle:Feature')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Feature entity.');
+        }
+
+        $editForm   = $this->createForm(new FeatureType(), $entity);
+        $deleteForm = $this->createDeleteForm($id);
+
+        $request = $this->getRequest();
+
+        $editForm->bindRequest($request);
+
+        if ($editForm->isValid()) {
+            $em->persist($entity);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('managerfront_feature_edit', array('id' => $id)));
+        }
+
+        return array(
+            'entity'      => $entity,
+            'edit_form'   => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        );
+    }
+
+    /**
+     * Deletes a Feature entity.
+     * @Secure(roles="ROLE_MANAGER")
+     * @Route("/feature/{id}/delete", name="managerfront_feature_delete")
+     * @Method("post")
+     */
+    public function feature_deleteAction($id)
+    {
+        $form = $this->createDeleteForm($id);
+        $request = $this->getRequest();
+
+        $form->bindRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $entity = $em->getRepository('PasaRequirementBundle:Feature')->find($id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find Feature entity.');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('managerfront_feature'));
     }
 
     private function createDeleteForm($id)

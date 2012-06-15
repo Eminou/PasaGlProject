@@ -26,11 +26,14 @@ class Manager extends User {
     protected $projects;
 
     public function __construct() {
-        parent::__construct();
-
-        $this->projects = new ArrayCollection();
-        $this->collaborators = new ArrayCollection();
+        $this->features = new ArrayCollection();
     }
+    
+    // ...
+    /**
+     * @ORM\OneToMany(targetEntity="Feature", mappedBy="feature")
+     */
+    protected $features;
 
  
     /**
@@ -77,4 +80,13 @@ class Manager extends User {
     {
         return array('ROLE_MANAGER');
     }
+    public function getFeatures() {
+        return $this->features;
+    }
+
+    public function setFeatures($features) {
+        $this->features = $features;
+    }
+
+
 }

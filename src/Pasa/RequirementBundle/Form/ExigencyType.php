@@ -18,6 +18,8 @@ class ExigencyType extends AbstractType
             ->add('start_date')
             ->add('end_date')
             ->add('project')
+            ->add('feature')
+            ->add('collaborator')
         ;
     }
 

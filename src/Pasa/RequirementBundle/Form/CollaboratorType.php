@@ -13,6 +13,7 @@ class CollaboratorType extends AbstractType
             ->add('first_name')
             ->add('last_name')
             ->add('username')
+            ->add('salt')
             ->add('password')
             ->add('email')
             ->add('is_active')

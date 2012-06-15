@@ -18,6 +18,14 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
        'pasa_requirement_secured_redirect' => true,
        '_logout' => true,
        'default' => true,
+       'collaboratorfront' => true,
+       'collaboratorfront_exigency' => true,
+       'collaboratorfront_exigency_show' => true,
+       'collaboratorfront_exigency_new' => true,
+       'collaboratorfront_exigency_create' => true,
+       'collaboratorfront_exigency_edit' => true,
+       'collaboratorfront_exigency_update' => true,
+       'collaboratorfront_exigency_delete' => true,
        'manager' => true,
        'manager_show' => true,
        'manager_new' => true,
@@ -39,6 +47,13 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
        'progression_edit' => true,
        'progression_update' => true,
        'progression_delete' => true,
+       'feature' => true,
+       'feature_show' => true,
+       'feature_new' => true,
+       'feature_create' => true,
+       'feature_edit' => true,
+       'feature_update' => true,
+       'feature_delete' => true,
        'project' => true,
        'project_show' => true,
        'project_new' => true,
@@ -121,6 +136,46 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
     private function getdefaultRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\DefaultController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/default/',  ),));
+    }
+
+    private function getcollaboratorfrontRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/collaboratorfront/',  ),));
+    }
+
+    private function getcollaboratorfront_exigencyRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::exigency_indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/collaboratorfront/exigency',  ),));
+    }
+
+    private function getcollaboratorfront_exigency_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::exigency_showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/collaboratorfront/exigency',  ),));
+    }
+
+    private function getcollaboratorfront_exigency_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::exigency_newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/collaboratorfront/exigency/new',  ),));
+    }
+
+    private function getcollaboratorfront_exigency_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::exigency_createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/collaboratorfront/exigency/create',  ),));
+    }
+
+    private function getcollaboratorfront_exigency_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::exigency_editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/collaboratorfront/exigency',  ),));
+    }
+
+    private function getcollaboratorfront_exigency_updateRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::exigency_updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/collaboratorfront/exigency',  ),));
+    }
+
+    private function getcollaboratorfront_exigency_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\CollaboratorFrontController::exigency_deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/collaboratorfront/exigency',  ),));
     }
 
     private function getmanagerRouteInfo()
@@ -226,6 +281,41 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
     private function getprogression_deleteRouteInfo()
     {
         return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\ProgressionController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/progression',  ),));
+    }
+
+    private function getfeatureRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/feature/',  ),));
+    }
+
+    private function getfeature_showRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::showAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/show',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/feature',  ),));
+    }
+
+    private function getfeature_newRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::newAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/feature/new',  ),));
+    }
+
+    private function getfeature_createRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::createAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/feature/create',  ),));
+    }
+
+    private function getfeature_editRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::editAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/edit',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/feature',  ),));
+    }
+
+    private function getfeature_updateRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::updateAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/update',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/feature',  ),));
+    }
+
+    private function getfeature_deleteRouteInfo()
+    {
+        return array(array (  0 => 'id',), array (  '_controller' => 'Pasa\\RequirementBundle\\Controller\\FeatureController::deleteAction',), array (  '_method' => 'post',), array (  0 =>   array (    0 => 'text',    1 => '/delete',  ),  1 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  2 =>   array (    0 => 'text',    1 => '/feature',  ),));
     }
 
     private function getprojectRouteInfo()

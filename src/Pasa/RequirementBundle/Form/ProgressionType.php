@@ -13,7 +13,6 @@ class ProgressionType extends AbstractType
             ->add('percentage')
             ->add('progression_date')
             ->add('exigency')
-            ->add('collaborator')
         ;
     }
 
